@@ -2,6 +2,6 @@ import styles from '../styles/home.module.scss';
 
 export default function Home() {
   return (
-    <h1 className={styles.title}>Olá <span>dev!</span></h1>
+    <h1>Olá <span>dev!</span></h1>
   )
 }
