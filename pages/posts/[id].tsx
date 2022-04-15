@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 interface Comment {
@@ -24,6 +24,22 @@ export default function Post({ comments }: CommentsProps) {
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await fetch(`http://localhost:3333/posts`);
+  const posts = await response.json();
+
+  const paths = posts.map(post => {
+    return {
+      params: { id: String(post.id) },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps<CommentsProps> = async context => {
   const {id} = context.params;
