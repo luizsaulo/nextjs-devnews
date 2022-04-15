@@ -9,10 +9,10 @@ interface PostsProps {
   posts: Post[];
 }
 
-export default function Posts({ posts}: PostsProps) {
+export default function Posts({ posts }: PostsProps) {
     return (
       <div>
-        <h1>Posts</h1>
+        <h1>Listagem de Posts</h1>
         <ul>
         {posts.map(post => (
           <li key={post.id}>{post.title}</li>
@@ -30,5 +30,6 @@ export default function Posts({ posts}: PostsProps) {
       props: {
         posts,
       },
+      revalidate: 5, //in seconds
     };
   };
