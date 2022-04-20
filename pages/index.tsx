@@ -19,7 +19,7 @@ export default function Home() {
           <p>
             Um blog com conteúdo extremamente <br />
             <span>relevante para o seu aprendizado.</span>
-          </p>
+          </p>          
         </section>
 
         <img src="/home.svg" alt="Home image" />
