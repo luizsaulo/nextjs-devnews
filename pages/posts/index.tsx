@@ -17,6 +17,25 @@ interface PostsProps {
   posts: Post[];
 }
 
+interface PrismicDocumentTitle {
+  type: string;
+  text: string;
+}
+ 
+interface PrismicDocumentContent {
+  type: string;
+  text: string;
+}
+ 
+interface PrismicDocument {
+  uid: string;
+  last_publication_date: string;
+  data: {
+    title: PrismicDocumentTitle[];
+    content: PrismicDocumentContent[];
+  }
+}
+
 export default function Posts({ posts }: PostsProps) {
     return (
       <>
@@ -24,7 +43,7 @@ export default function Posts({ posts }: PostsProps) {
         <main className={styles.container}>
           <div className={styles.posts}>
             {posts.map(post => (
-              <Link href="#" key={post.slug}>
+              <Link href={`/posts/${post.slug}`} key={post.slug}>
                 <a>
                   <time>{post.updateAt}</time>
                   <strong>{post.title}</strong>
