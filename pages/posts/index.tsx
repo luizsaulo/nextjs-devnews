@@ -68,12 +68,13 @@ export default function Posts({ posts }: PostsProps) {
     );
 
       const posts = response.results.map(post => {
+        const document = post as PrismicDocument;
         return {
-          slug: post.uid,
-          title: RichText.asText(post.data.title),
-          excerpt: post.data.content.find(content => content.type === 'paragraph')?.text ?? 
+          slug: document.uid,
+          title: RichText.asText(document.data.title),
+          excerpt: document.data.content.find(content => content.type === 'paragraph')?.text ?? 
           '',
-          updateAt: new Date(post.last_publication_date).toLocaleDateString(
+          updateAt: new Date(document.last_publication_date).toLocaleDateString(
             'pt-BR', 
             {
               day: '2-digit',
