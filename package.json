@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@prismicio/client": "^5.1.1",
+    "jest-environment-jsdom": "^28.0.1",
     "next": "12.1.4",
     "prismic-dom": "^2.2.7",
     "react": "18.0.0",
