@@ -12,7 +12,7 @@ const posts = [
     },
 ];
 
-jest.mock('../../components/services.prismic');
+jest.mock('../../components/services/prismic');
 
 describe('Posts page', () => {
     it('correctly renders', () => {
